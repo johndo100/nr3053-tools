@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Install Ruff
+        run: python3 -m pip install --quiet 'ruff~=0.16.0'
+
+      - name: Check Python syntax
+        run: python3 -m py_compile unlock_nr3053.py
+
+      - name: Lint
+        run: ruff check unlock_nr3053.py
