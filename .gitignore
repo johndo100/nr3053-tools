@@ -1,3 +1,4 @@
 __pycache__/
 *.py[cod]
 config.bin
+*.throughwall_mtd_Factory_0x0-0x200000.bin
